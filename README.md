@@ -1,5 +1,7 @@
 # PedreiraFlix para TV
 
+**No ar:** https://xandps.github.io/instalar-tv/ · link curto para digitar na TV: **`tinyurl.com/pedreiratv`**
+
 Site simples para baixar e instalar o `app.apk` (PedreiraFlix) direto pelo navegador da Smart TV (Android TV, Google TV ou Fire TV). A página foi feita para usar com o controle remoto: o botão de download já começa focado, então basta apertar **OK**.
 
 ## Arquivos
