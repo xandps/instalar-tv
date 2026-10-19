@@ -1,0 +1,210 @@
+/* Layout pensado para TV (vista de ~3 m, navegação por D-pad).
+   Navegadores de TV costumam reportar ~960x540 px CSS, então os
+   tamanhos escalam com a largura da tela (vw) e têm valor de reserva
+   para navegadores antigos que não entendem clamp(). */
+
+:root {
+  --bg: #0b0d12;
+  --surface: #151924;
+  --surface-2: #1d2230;
+  --text: #ffffff;
+  --muted: #b8c0d0;
+  --accent: #1a73ff;
+  --accent-strong: #0b5ce0;
+  --focus: #ffd400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 20% 15%, #16233f 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-size: clamp(16px, 1.45vw, 30px);
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2.5em;
+  align-items: center;
+  max-width: 1600px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2em 16px;
+}
+
+/* TV e telas largas: duas colunas, tudo visível sem rolar */
+@media (min-width: 800px) {
+  .layout {
+    grid-template-columns: 1.1fr 1fr;
+    grid-gap: 4vw;
+    padding: 4vh 5vw;
+  }
+}
+
+/* ---------- Coluna principal ---------- */
+
+.brand {
+  margin: 0 0 0.4em;
+  color: #4d94ff;
+  font-size: 1.3em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  margin: 0 0 0.35em;
+  font-size: 2.6em;
+  line-height: 1.1;
+}
+
+.lead {
+  margin: 0 0 1.6em;
+  color: var(--muted);
+  font-size: 1.15em;
+}
+
+.lead strong {
+  color: var(--text);
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 0.7em 1.6em;
+  border: 0.18em solid transparent;
+  border-radius: 0.6em;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 1.6em;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 0.4em 1.2em rgba(26, 115, 255, 0.35);
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.download-btn .icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.35em;
+  vertical-align: -0.12em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Foco do controle remoto: borda amarela bem visível + leve aumento */
+.download-btn:focus,
+.download-btn:hover {
+  outline: none;
+  border-color: var(--focus);
+  background-color: var(--accent-strong);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 0.25em rgba(255, 212, 0, 0.35), 0 0.5em 1.6em rgba(26, 115, 255, 0.5);
+}
+
+.download-btn:active {
+  transform: scale(1.02);
+}
+
+.meta {
+  margin: 1.6em 0 0;
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+/* ---------- Passo a passo ---------- */
+
+.steps {
+  padding: 1.4em 1.6em;
+  border-radius: 0.8em;
+  background-color: var(--surface);
+}
+
+.steps h2 {
+  margin: 0 0 0.8em;
+  font-size: 1.35em;
+}
+
+.steps ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0.8em;
+  align-items: start;
+  margin-bottom: 0.8em;
+}
+
+.steps li:last-child {
+  margin-bottom: 0;
+}
+
+.steps .num {
+  display: block;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  background-color: var(--accent);
+  font-weight: 700;
+  line-height: 1.8em;
+  text-align: center;
+}
+
+.steps p,
+.tip p {
+  margin: 0.15em 0 0;
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+.steps em,
+.tip em {
+  color: var(--text);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.tip {
+  margin-top: 1.2em;
+  padding: 0.9em 1.1em;
+  border-left: 0.25em solid var(--focus);
+  border-radius: 0.4em;
+  background-color: var(--surface-2);
+}
+
+/* Celular: botão ocupa a largura toda */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .download-btn {
+    display: block;
+    text-align: center;
+  }
+
+  .download-btn:focus,
+  .download-btn:hover {
+    transform: none;
+  }
+}
