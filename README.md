@@ -1,8 +1,8 @@
-# PedreiraFlix para TV
+# IPTVnator para TV
 
 **No ar:** https://xandps.github.io/instalar-tv/ · link curto para digitar na TV: **`tinyurl.com/pedreiratv`**
 
-Site simples para baixar e instalar o `app.apk` (PedreiraFlix) direto pelo navegador da Smart TV (Android TV, Google TV ou Fire TV). A página foi feita para usar com o controle remoto: o botão de download já começa focado, então basta apertar **OK**.
+Site simples para baixar e instalar o `app.apk` (IPTVnator, versão TV) direto pelo navegador da Smart TV (Android TV, Google TV ou Fire TV). A página foi feita para usar com o controle remoto: o botão de download já começa focado, então basta apertar **OK**.
 
 ## Arquivos
 
@@ -10,7 +10,7 @@ Site simples para baixar e instalar o `app.apk` (PedreiraFlix) direto pelo naveg
 |--------------|---------------------------------------------------|
 | `index.html` | Página principal (botão de download + passo a passo) |
 | `style.css`  | Visual para TV: textos grandes, alto contraste, foco visível |
-| `app.apk`    | O instalador (PedreiraFlix 1.4)                    |
+| `app.apk`    | O instalador (IPTVnator TV 0.1.0)                  |
 | `README.md`  | Este guia                                          |
 
 ## Testar no computador
@@ -25,7 +25,7 @@ Abra o `index.html` no navegador. Use **Tab** e **Enter** para simular o control
    ```bash
    git init
    git add index.html style.css app.apk README.md
-   git commit -m "Site de instalação do PedreiraFlix"
+   git commit -m "Site de instalação do app"
    git branch -M main
    git remote add origin https://github.com/SEU_USUARIO/instalar-tv.git
    git push -u origin main
@@ -47,6 +47,7 @@ Digite esse endereço no navegador da TV.
    - **Android TV / Google TV:** Configurações > Apps > Segurança e restrições > Fontes desconhecidas (ou *Instalar apps desconhecidos*).
    - **Fire TV:** Configurações > Minha Fire TV > Opções do desenvolvedor > Instalar apps desconhecidos.
 3. Abra o arquivo baixado e confirme **Instalar**.
+4. Em **Configurações > Rede**, ative o **DNS privado** `one.one.one.one` (o DNS da operadora não encontra alguns servidores).
 
 **A TV não tem navegador?** Instale o app **Downloader** (AFTVnews) pela loja da TV, digite o endereço do site nele e baixe por lá.
 
